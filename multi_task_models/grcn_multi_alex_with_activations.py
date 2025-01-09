@@ -143,9 +143,15 @@ class Multi_AlexnetMap_v3(nn.Module):
         #     rgb = self.rgb_features[2](rgb)
         # else:
         # ---------------------------------------------------------------------------------
+        
+        activations_dict = {}  # Dictionary to store activations
+        
         rgb = self.rgb_features[0](rgb)
+        activations_dict['rgb_0'] = rgb  # Store activations after layer 0
         rgb = self.rgb_features[1](rgb)
+        activations_dict['rgb_1'] = rgb  # Store activations after layer 1
         rgb = self.rgb_features[2](rgb)
+        activations_dict['rgb_2'] = rgb  # Store activations after layer 2
         d = self.d_features(d)
         x = torch.cat((rgb, d), dim=1)
         if shap_mask != []:
@@ -160,6 +166,7 @@ class Multi_AlexnetMap_v3(nn.Module):
         else:
             for i in range(len(self.features)):
                 x = self.features[i](x)
+                activations_dict[f'feature_{i}'] = x  # Store activations after each feature layer
             # x = self.features(x)
         if is_grasp:
             out = self.grasp(x)
@@ -171,7 +178,7 @@ class Multi_AlexnetMap_v3(nn.Module):
             # out = self.cls(x)
             confidence = self.cls_confidence(x)
         out = torch.cat((out, confidence), dim=1)
-        return out
+        return out, activations_dict
 
     # Unfreeze pretrained layers (1st & 2nd CNN layer)
     def unfreeze_depth_backbone(self):
@@ -180,3 +187,15 @@ class Multi_AlexnetMap_v3(nn.Module):
         
         for param in self.d_features.parameters():
             param.requires_grad = True
+
+# Function to find top 10 features
+def find_top_features(activations_dict):
+    # Find top 10 features based on activation magnitude for each layer
+    top_features = {}
+    for layer_name, activation in activations_dict.items():
+        # Compute magnitude (sum of absolute values over spatial dimensions)
+        magnitude = torch.sum(torch.abs(activation), dim=(2, 3))  # Sum over height and width
+        top_k_values, top_k_indices = torch.topk(magnitude, 10, dim=1)  # Get top 10 features
+        
+        top_features[layer_name] = top_k_indices  # Store top 10 feature indices for each layer
+    return top_features
