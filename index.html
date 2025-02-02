@@ -7517,6 +7517,109 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Neural-Network-Architecture">Neural Network Architecture<a class="anchor-link" href="#Neural-Network-Architecture">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Multi_AlexnetMap_v3(
+  (rgb_features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(11, 11), stride=(4, 4), padding=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (d_features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(11, 11), stride=(4, 4), padding=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (features): Sequential(
+    (0): Conv2d(128, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): Dropout(p=0.3, inplace=False)
+    (3): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (4): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (5): ReLU(inplace=True)
+    (6): Dropout(p=0.3, inplace=False)
+    (7): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (8): ReLU(inplace=True)
+    (9): Dropout(p=0.3, inplace=False)
+    (10): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): ReLU(inplace=True)
+    (12): Dropout(p=0.3, inplace=False)
+  )
+  (grasp): Sequential(
+    (0): ConvTranspose2d(64, 32, kernel_size=(3, 3), stride=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (3): ReLU(inplace=True)
+    (4): ConvTranspose2d(32, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (5): ReLU(inplace=True)
+    (6): ConvTranspose2d(16, 5, kernel_size=(11, 11), stride=(4, 4), output_padding=(1, 1))
+    (7): Tanh()
+  )
+  (grasp_confidence): Sequential(
+    (0): ConvTranspose2d(64, 32, kernel_size=(3, 3), stride=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (3): ReLU(inplace=True)
+    (4): ConvTranspose2d(32, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (5): ReLU(inplace=True)
+    (6): ConvTranspose2d(16, 1, kernel_size=(11, 11), stride=(4, 4), output_padding=(1, 1))
+    (7): Sigmoid()
+  )
+  (cls): Sequential(
+    (0): ConvTranspose2d(64, 32, kernel_size=(3, 3), stride=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (3): ReLU(inplace=True)
+    (4): ConvTranspose2d(32, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (5): ReLU(inplace=True)
+    (6): ConvTranspose2d(16, 5, kernel_size=(11, 11), stride=(4, 4), output_padding=(1, 1))
+    (7): Tanh()
+  )
+  (cls_confidence): Sequential(
+    (0): ConvTranspose2d(64, 32, kernel_size=(3, 3), stride=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+    (3): ReLU(inplace=True)
+    (4): ConvTranspose2d(32, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (5): ReLU(inplace=True)
+    (6): ConvTranspose2d(16, 1, kernel_size=(11, 11), stride=(4, 4), output_padding=(1, 1))
+    (7): Sigmoid()
+  )
+)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Regular-Testing-for-Non-Shuffled-Data">Regular Testing for Non-Shuffled Data<a class="anchor-link" href="#Regular-Testing-for-Non-Shuffled-Data">¶</a></h2>
 </div>
 </div>
@@ -7595,7 +7698,7 @@ a.anchor-link {
   warnings.warn(
 /home/billy/anaconda3/envs/gr_cls_multitask/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
   warnings.warn(msg)
-/tmp/ipykernel_37298/1692255469.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+/tmp/ipykernel_50107/1692255469.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   model.load_state_dict(torch.load(weights_path))
 </pre>
 </div>
@@ -7615,14 +7718,15 @@ a.anchor-link {
 <span class="sd">    Registers hooks on specific layers of the model.</span>
 <span class="sd">    Returns a dictionary to store activations and a list of hooks.</span>
 <span class="sd">    """</span>
-    <span class="n">layers_to_track</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'rgb_features'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s1">'d_features'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s1">'features'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-        <span class="s1">'grasp'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s1">'cls'</span><span class="p">:</span> <span class="mi">4</span>
-    <span class="p">}</span>
-    <span class="n">activations</span> <span class="o">=</span> <span class="p">{</span><span class="n">layer_name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">layer_name</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">}</span>
+    <span class="n">layers_to_track</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">'rgb_features'</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">activations</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">layer_idx</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">hook_fn</span><span class="p">(</span><span class="n">layer_name</span><span class="p">):</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">hook</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
@@ -7630,12 +7734,13 @@ a.anchor-link {
         <span class="k">return</span> <span class="n">hook</span>
 
     <span class="n">hooks</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">layer_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'rgb_features'</span><span class="p">,</span> <span class="s1">'d_features'</span><span class="p">]:</span>
             <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">layer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">hook_fn</span><span class="p">(</span><span class="n">layer_name</span><span class="p">)))</span>
+            <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
+        <span class="n">hook_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">layer_idx</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">layer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">hook_fn</span><span class="p">(</span><span class="n">hook_key</span><span class="p">)))</span>
 
     <span class="k">return</span> <span class="n">hooks</span><span class="p">,</span> <span class="n">activations</span>
 </pre></div>
@@ -7713,10 +7818,11 @@ Training steps: 360 -- Val steps: 40
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Top 10 feature maps for rgb_features: [47, 5, 43, 61, 46, 62, 17, 37, 38, 10]
-Top 10 feature maps for d_features: [8, 53, 40, 62, 47, 5, 17, 57, 23, 32]
-Top 10 feature maps for features: [24, 18, 38, 36, 9, 30, 45, 60, 15, 54]
-Top 10 feature maps for cls: [1, 15, 8, 12, 5, 3, 9, 11, 14, 10]
+<pre>Top 10 feature maps for rgb_features_0: [47, 5, 17, 62, 10, 25, 14, 33, 37, 2]
+Top 10 feature maps for features_0: [19, 2, 7, 9, 21, 20, 13, 11, 5, 6]
+Top 10 feature maps for features_4: [7, 50, 22, 16, 56, 27, 62, 44, 17, 59]
+Top 10 feature maps for features_7: [11, 47, 37, 57, 62, 29, 60, 39, 52, 6]
+Top 10 feature maps for features_10: [24, 18, 30, 45, 36, 9, 38, 54, 15, 16]
 </pre>
 </div>
 </div>
@@ -7730,7 +7836,7 @@ Top 10 feature maps for cls: [1, 15, 8, 12, 5, 3, 9, 11, 14, 10]
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">avg_activation</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">acts</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -7743,75 +7849,7 @@ Top 10 feature maps for cls: [1, 15, 8, 12, 5, 3, 9, 11, 14, 10]
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>tensor([-1.5345, -0.8570, -1.4611, -1.2415, -2.6134], device='cuda:0')</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Debugging: Check stored activations</span>
-<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Layer: </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">, Activations Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Activation Shape: </span><span class="si">{</span><span class="n">acts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Layer: rgb_features, Activations Count: 400
-Activation Shape: torch.Size([1, 64, 27, 27])
-Layer: d_features, Activations Count: 400
-Activation Shape: torch.Size([1, 64, 27, 27])
-Layer: features, Activations Count: 400
-Activation Shape: torch.Size([1, 64, 13, 13])
-Layer: grasp, Activations Count: 0
-Layer: cls, Activations Count: 400
-Activation Shape: torch.Size([1, 5, 224, 224])
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get test acc for Grasp model</span>
-<span class="n">accuracy</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">get_grasp_acc</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include_depth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Dataset size: 400
-Training steps: 360 -- Val steps: 40
-</pre>
+<pre>torch.Size([400, 64, 13, 13])</pre>
 </div>
 </div>
 </div>
@@ -7841,16 +7879,16 @@ Training steps: 360 -- Val steps: 40
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Layer: rgb_features, Activations Count: 800
-Activation Shape: torch.Size([1, 64, 27, 27])
-Layer: d_features, Activations Count: 800
-Activation Shape: torch.Size([1, 64, 27, 27])
-Layer: features, Activations Count: 800
+<pre>Layer: rgb_features_0, Activations Count: 400
+Activation Shape: torch.Size([1, 64, 55, 55])
+Layer: features_0, Activations Count: 400
+Activation Shape: torch.Size([1, 32, 27, 27])
+Layer: features_4, Activations Count: 400
 Activation Shape: torch.Size([1, 64, 13, 13])
-Layer: grasp, Activations Count: 400
-Activation Shape: torch.Size([1, 16, 54, 54])
-Layer: cls, Activations Count: 400
-Activation Shape: torch.Size([1, 16, 54, 54])
+Layer: features_7, Activations Count: 400
+Activation Shape: torch.Size([1, 64, 13, 13])
+Layer: features_10, Activations Count: 400
+Activation Shape: torch.Size([1, 64, 13, 13])
 </pre>
 </div>
 </div>
@@ -7862,6 +7900,115 @@ Activation Shape: torch.Size([1, 16, 54, 54])
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get test acc for Grasp model</span>
+<span class="n">accuracy</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">get_grasp_acc</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include_depth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Dataset size: 400
+Training steps: 72 -- Val steps: 8
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Debugging: Check stored activations</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Layer: </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">, Activations Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Activation Shape: </span><span class="si">{</span><span class="n">acts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Layer: rgb_features_0, Activations Count: 480
+Activation Shape: torch.Size([1, 64, 55, 55])
+Layer: features_0, Activations Count: 480
+Activation Shape: torch.Size([1, 32, 27, 27])
+Layer: features_4, Activations Count: 480
+Activation Shape: torch.Size([1, 64, 13, 13])
+Layer: features_7, Activations Count: 480
+Activation Shape: torch.Size([1, 64, 13, 13])
+Layer: features_10, Activations Count: 480
+Activation Shape: torch.Size([1, 64, 13, 13])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Debugging: Check stored activations</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Layer: </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">, Activations Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Activation Shape: </span><span class="si">{</span><span class="n">acts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Layer: rgb_features_0, Activations Count: 80
+Activation Shape: torch.Size([5, 64, 55, 55])
+Layer: features_0, Activations Count: 80
+Activation Shape: torch.Size([5, 32, 27, 27])
+Layer: features_4, Activations Count: 80
+Activation Shape: torch.Size([5, 64, 13, 13])
+Layer: features_7, Activations Count: 80
+Activation Shape: torch.Size([5, 64, 13, 13])
+Layer: features_10, Activations Count: 80
+Activation Shape: torch.Size([5, 64, 13, 13])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -7882,11 +8029,11 @@ Activation Shape: torch.Size([1, 16, 54, 54])
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Top 10 feature maps for rgb_features: [47, 5, 43, 61, 46, 62, 17, 37, 38, 10]
-Top 10 feature maps for d_features: [8, 53, 40, 62, 47, 5, 17, 57, 23, 32]
-Top 10 feature maps for features: [24, 18, 38, 36, 9, 30, 45, 60, 15, 54]
-Top 10 feature maps for grasp: [2, 3, 7, 8, 10, 5, 12, 4, 1, 6]
-Top 10 feature maps for cls: [1, 15, 8, 12, 5, 3, 9, 11, 14, 10]
+<pre>Top 10 feature maps for rgb_features_0: [47, 5, 17, 62, 10, 25, 14, 33, 37, 2]
+Top 10 feature maps for features_0: [19, 2, 7, 9, 21, 20, 13, 11, 5, 6]
+Top 10 feature maps for features_4: [7, 50, 22, 16, 56, 27, 62, 44, 17, 59]
+Top 10 feature maps for features_7: [11, 47, 37, 57, 62, 29, 60, 39, 52, 6]
+Top 10 feature maps for features_10: [24, 18, 30, 45, 36, 9, 38, 54, 15, 16]
 </pre>
 </div>
 </div>
@@ -7897,7 +8044,43 @@ Top 10 feature maps for cls: [1, 15, 8, 12, 5, 3, 9, 11, 14, 10]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">acts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">acts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Shape: [Batch x Channels x Height x Width]</span>
+        <span class="n">avg_activation</span> <span class="o">=</span> <span class="n">acts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># Shape: [Channels]</span>
+        <span class="n">top_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">avg_activation</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top 10 feature maps for </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">top_indices</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Top 10 feature maps for rgb_features_0: [47, 5, 17, 62, 10, 25, 14, 33, 37, 2]
+Top 10 feature maps for features_0: [19, 2, 7, 9, 21, 20, 13, 11, 5, 6]
+Top 10 feature maps for features_4: [7, 50, 22, 16, 56, 27, 62, 44, 17, 59]
+Top 10 feature maps for features_7: [11, 47, 37, 57, 62, 29, 60, 39, 52, 6]
+Top 10 feature maps for features_10: [24, 18, 30, 45, 36, 9, 38, 54, 15, 16]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Grasp: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
@@ -7914,7 +8097,7 @@ Top 10 feature maps for cls: [1, 15, 8, 12, 5, 3, 9, 11, 14, 10]
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Grasp: 81.5 0.0
+<pre>Grasp: 81.25 0.0
 CLS: 85.0 0.0
 </pre>
 </div>
@@ -7929,6 +8112,1246 @@ CLS: 85.0 0.0
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="For-Shuffled-Data">For Shuffled Data<a class="anchor-link" href="#For-Shuffled-Data">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Combined-Data">Combined Data<a class="anchor-link" href="#Combined-Data">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="sd">"""</span>
+<span class="sd">This file tests the model's performance on the testing dataset.</span>
+
+<span class="sd">For CLS, this script returns the testing accuracy.</span>
+<span class="sd">For Grasp, this script returns the testing accuracy and visualizes the</span>
+<span class="sd">grasp prediction.</span>
+
+
+<span class="sd">Comment or uncomment certain lines of code for swapping between</span>
+<span class="sd">training CLS model and Grasping model.</span>
+
+<span class="sd">E.g. Uncomment the lines with NO SPACE between '#' and the codes: </span>
+<span class="sd"># Get test acc for CLS model</span>
+<span class="sd">#accuracy, loss = get_test_acc(model)</span>
+<span class="sd"># Get test acc for Grasp model</span>
+<span class="sd">accuracy, loss = get_grasp_acc(model)</span>
+
+<span class="sd">-----&gt;</span>
+
+<span class="sd"># Get test acc for CLS model</span>
+<span class="sd">accuracy, loss = get_test_acc(model)</span>
+<span class="sd"># Get test acc for Grasp model</span>
+<span class="sd">#accuracy, loss = get_grasp_acc(model)</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Params</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multi_task_models.grcn_multi_alex</span><span class="w"> </span><span class="kn">import</span> <span class="n">Multi_AlexnetMap_v3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">training.single_task.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_cls_acc</span><span class="p">,</span> <span class="n">get_grasp_acc</span><span class="p">,</span> <span class="n">visualize_grasp</span><span class="p">,</span> <span class="n">visualize_cls</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="n">Params</span><span class="p">()</span>
+
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">MODEL_NAME</span>
+<span class="n">weights_dir</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">MODEL_PATH</span>
+<span class="n">weights_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">weights_dir</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">'_final.pth'</span><span class="p">)</span>
+<span class="c1"># AlexNet with 1st, 2nd layer pretrained on Imagenet</span>
+<span class="n">model</span> <span class="o">=</span>  <span class="n">Multi_AlexnetMap_v3</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">'cuda'</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights_path</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">TEST_PATH_SHUFFLE</span>
+<span class="c1"># if len(sys.argv) &gt; 1:</span>
+<span class="c1">#     path = params.TEST_PATH_SHUFFLE</span>
+
+<span class="c1"># Visualize CLS predictions one by one</span>
+<span class="c1">#visualize_cls(model)</span>
+<span class="c1"># Visualize grasp predictions one by one</span>
+<span class="c1">#visualize_grasp(model)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/home/billy/anaconda3/envs/gr_cls_multitask/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/billy/anaconda3/envs/gr_cls_multitask/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/tmp/ipykernel_99904/1716835784.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(weights_path))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">register_custom_hooks</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Registers hooks on specific layers of the model.</span>
+<span class="sd">    Returns a dictionary to store activations and a list of hooks.</span>
+<span class="sd">    """</span>
+    <span class="n">layers_to_track</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">'rgb_features'</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">activations</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">layer_idx</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">hook_fn</span><span class="p">(</span><span class="n">layer_name</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">hook</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+            <span class="n">activations</span><span class="p">[</span><span class="n">layer_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">hook</span>
+
+    <span class="n">hooks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">layer_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'rgb_features'</span><span class="p">,</span> <span class="s1">'d_features'</span><span class="p">]:</span>
+            <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
+        <span class="n">hook_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">layer_idx</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">layer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">hook_fn</span><span class="p">(</span><span class="n">hook_key</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">hooks</span><span class="p">,</span> <span class="n">activations</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Register hooks</span>
+<span class="n">hooks</span><span class="p">,</span> <span class="n">activations</span> <span class="o">=</span> <span class="n">register_custom_hooks</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get test acc for CLS model</span>
+<span class="n">c_accuracy</span><span class="p">,</span> <span class="n">c_loss</span> <span class="o">=</span> <span class="n">get_cls_acc</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include_depth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Dataset size: 1200
+Training steps: 216 -- Val steps: 24
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Debugging: Check stored activations</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Layer: </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">, Activations Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Activation Shape: </span><span class="si">{</span><span class="n">acts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Layer: rgb_features_0, Activations Count: 240
+Activation Shape: torch.Size([5, 64, 55, 55])
+Layer: features_0, Activations Count: 240
+Activation Shape: torch.Size([5, 32, 27, 27])
+Layer: features_4, Activations Count: 240
+Activation Shape: torch.Size([5, 64, 13, 13])
+Layer: features_7, Activations Count: 240
+Activation Shape: torch.Size([5, 64, 13, 13])
+Layer: features_10, Activations Count: 240
+Activation Shape: torch.Size([5, 64, 13, 13])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">acts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">acts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Shape: [Batch x Channels x Height x Width]</span>
+        <span class="n">avg_activation</span> <span class="o">=</span> <span class="n">acts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># Shape: [Channels]</span>
+        <span class="n">top_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">avg_activation</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top 10 feature maps for </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">top_indices</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Top 10 feature maps for rgb_features_0: [47, 5, 17, 62, 10, 25, 14, 33, 37, 2]
+Top 10 feature maps for features_0: [19, 2, 9, 7, 21, 13, 20, 5, 11, 10]
+Top 10 feature maps for features_4: [50, 16, 7, 22, 56, 62, 44, 27, 59, 17]
+Top 10 feature maps for features_7: [11, 57, 37, 47, 62, 52, 24, 0, 39, 55]
+Top 10 feature maps for features_10: [45, 24, 18, 30, 36, 38, 9, 8, 22, 54]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get test acc for Grasp model</span>
+<span class="n">accuracy</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">get_grasp_acc</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include_depth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Dataset size: 1200
+Training steps: 1080 -- Val steps: 120
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+index 4 is out of bounds for dimension 2 with size 4
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Separately</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">acts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">acts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Shape: [Batch x Channels x Height x Width]</span>
+        <span class="n">avg_activation</span> <span class="o">=</span> <span class="n">acts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># Shape: [Channels]</span>
+        <span class="n">top_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">avg_activation</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top 10 feature maps for </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">top_indices</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Top 10 feature maps for rgb_features_0: [47, 5, 17, 62, 10, 25, 14, 33, 37, 2]
+Top 10 feature maps for features_0: [19, 2, 9, 7, 21, 13, 20, 5, 11, 10]
+Top 10 feature maps for features_4: [50, 16, 7, 22, 56, 62, 44, 27, 59, 17]
+Top 10 feature maps for features_7: [11, 57, 37, 47, 62, 52, 24, 0, 39, 55]
+Top 10 feature maps for features_10: [45, 24, 18, 30, 36, 38, 9, 8, 22, 54]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Consecutively</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">acts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">acts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Shape: [Batch x Channels x Height x Width]</span>
+        <span class="n">avg_activation</span> <span class="o">=</span> <span class="n">acts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># Shape: [Channels]</span>
+        <span class="n">top_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">avg_activation</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top 10 feature maps for </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">top_indices</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Top 10 feature maps for rgb_features_0: [47, 5, 17, 62, 10, 25, 14, 33, 37, 2]
+Top 10 feature maps for features_0: [19, 2, 9, 7, 21, 13, 20, 5, 11, 10]
+Top 10 feature maps for features_4: [50, 16, 7, 22, 56, 62, 44, 27, 59, 17]
+Top 10 feature maps for features_7: [11, 57, 37, 47, 62, 52, 24, 0, 39, 55]
+Top 10 feature maps for features_10: [45, 24, 18, 30, 36, 38, 9, 8, 22, 54]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Separately</span>
+<span class="c1"># Debugging: Check stored activations</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Layer: </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">, Activations Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Activation Shape: </span><span class="si">{</span><span class="n">acts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Layer: rgb_features_0, Activations Count: 1200
+Activation Shape: torch.Size([1, 64, 55, 55])
+Layer: features_0, Activations Count: 1200
+Activation Shape: torch.Size([1, 32, 27, 27])
+Layer: features_4, Activations Count: 1200
+Activation Shape: torch.Size([1, 64, 13, 13])
+Layer: features_7, Activations Count: 1200
+Activation Shape: torch.Size([1, 64, 13, 13])
+Layer: features_10, Activations Count: 1200
+Activation Shape: torch.Size([1, 64, 13, 13])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Consecutively</span>
+<span class="c1"># Debugging: Check stored activations</span>
+<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">acts</span> <span class="ow">in</span> <span class="n">activations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Layer: </span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">, Activations Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">acts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Activation Shape: </span><span class="si">{</span><span class="n">acts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Layer: rgb_features_0, Activations Count: 1440
+Activation Shape: torch.Size([5, 64, 55, 55])
+Layer: features_0, Activations Count: 1440
+Activation Shape: torch.Size([5, 32, 27, 27])
+Layer: features_4, Activations Count: 1440
+Activation Shape: torch.Size([5, 64, 13, 13])
+Layer: features_7, Activations Count: 1440
+Activation Shape: torch.Size([5, 64, 13, 13])
+Layer: features_10, Activations Count: 1440
+Activation Shape: torch.Size([5, 64, 13, 13])
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -8017,36 +9440,8 @@ CLS: 85.0 0.0
   warnings.warn(
 /home/billy/anaconda3/envs/gr_cls_multitask/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
   warnings.warn(msg)
-/tmp/ipykernel_19433/609354409.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+/tmp/ipykernel_77045/609354409.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   model.load_state_dict(torch.load(weights_path))
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">visualize_cls</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Dataset size: 400
-Training steps: 360 -- Val steps: 40
 </pre>
 </div>
 </div>
@@ -8065,14 +9460,15 @@ Training steps: 360 -- Val steps: 40
 <span class="sd">    Registers hooks on specific layers of the model.</span>
 <span class="sd">    Returns a dictionary to store activations and a list of hooks.</span>
 <span class="sd">    """</span>
-    <span class="n">layers_to_track</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'rgb_features'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s1">'d_features'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s1">'features'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-        <span class="s1">'grasp'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="s1">'cls'</span><span class="p">:</span> <span class="mi">4</span>
-    <span class="p">}</span>
-    <span class="n">activations</span> <span class="o">=</span> <span class="p">{</span><span class="n">layer_name</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">layer_name</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">}</span>
+    <span class="n">layers_to_track</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">'rgb_features'</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'features'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">activations</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">layer_idx</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">hook_fn</span><span class="p">(</span><span class="n">layer_name</span><span class="p">):</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">hook</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
@@ -8080,12 +9476,13 @@ Training steps: 360 -- Val steps: 40
         <span class="k">return</span> <span class="n">hook</span>
 
     <span class="n">hooks</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">layer_idx</span> <span class="ow">in</span> <span class="n">layers_to_track</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">layer_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'rgb_features'</span><span class="p">,</span> <span class="s1">'d_features'</span><span class="p">]:</span>
             <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">layer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">hook_fn</span><span class="p">(</span><span class="n">layer_name</span><span class="p">)))</span>
+            <span class="n">block</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span>
+        <span class="n">hook_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">layer_idx</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">layer_idx</span><span class="p">]</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">hook_fn</span><span class="p">(</span><span class="n">hook_key</span><span class="p">)))</span>
 
     <span class="k">return</span> <span class="n">hooks</span><span class="p">,</span> <span class="n">activations</span>
 </pre></div>
@@ -8108,31 +9505,17 @@ Training steps: 360 -- Val steps: 40
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get test acc for CLS model</span>
 <span class="n">c_accuracy</span><span class="p">,</span> <span class="n">c_loss</span> <span class="o">=</span> <span class="n">get_cls_acc</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include_depth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Dataset size: 400
-Training steps: 360 -- Val steps: 40
-</pre>
 </div>
 </div>
 </div>
@@ -8879,48 +10262,6 @@ Top 10 feature maps for grasp: [2, 3, 7, 8, 10, 5, 12, 4, 1, 11]
 Top 10 feature maps for d_features: [8, 53, 40, 62, 47, 5, 17, 32, 43, 23]
 Top 10 feature maps for features: [24, 18, 38, 36, 9, 54, 45, 30, 60, 15]
 Top 10 feature maps for grasp: [2, 3, 7, 8, 10, 5, 12, 4, 1, 11]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">accuracy</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#print('Grasp: %s' % accuracy, loss)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'CLS: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">c_accuracy</span><span class="p">,</span> <span class="n">c_loss</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CLS: 52.25 0.0
 </pre>
 </div>
 </div>
